@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Ishwarya | Developer Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0D0D0D;
+    --bg2: #141414;
+    --bg3: #1A1A1A;
+    --border: rgba(255,255,255,0.08);
+    --border2: rgba(255,255,255,0.15);
+    --text: #F0EDE8;
+    --text2: #888;
+    --text3: #555;
+    --accent: #C9A96E;
+    --accent2: #E8D5B0;
+    --green: #4ADE80;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+
+  nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1.4rem 4rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); background: rgba(13,13,13,0.85); backdrop-filter: blur(20px); }
+  .logo { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--accent); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { font-size: 13px; color: var(--text2); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--text); }
+  .nav-cta { font-family: 'DM Mono', monospace; font-size: 12px; padding: 8px 20px; border: 1px solid var(--accent); color: var(--accent); border-radius: 4px; text-decoration: none; transition: background 0.2s, color 0.2s; }
+  .nav-cta:hover { background: var(--accent); color: var(--bg); }
+
+  section { padding: 7rem 4rem; position: relative; z-index: 1; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-tag { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); text-transform: uppercase; margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem; }
+  .section-tag::before { content: ''; width: 30px; height: 1px; background: var(--accent); display: block; }
+  .section-heading { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--text); margin-bottom: 1.5rem; }
+  .section-heading em { color: var(--accent); font-style: italic; }
+
+  #hero { min-height: 100vh; display: flex; align-items: center; padding: 8rem 4rem 5rem; }
+  .hero-inner { max-width: 1100px; margin: 0 auto; }
+  h1.hero-name { font-family: 'Playfair Display', serif; font-size: 6rem; line-height: 1; margin-bottom: 1.5rem; color: var(--text); }
+  h1.hero-name span { color: var(--accent); font-style: italic; }
+  .hero-role { font-size: 18px; color: var(--text2); margin-bottom: 2rem; max-width: 560px; line-height: 1.7; }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 5rem; }
+  .btn-gold { background: var(--accent); color: var(--bg); padding: 13px 32px; border-radius: 4px; font-size: 13px; text-decoration: none; }
+  .btn-gold:hover { opacity: 0.85; }
+  .btn-ghost { background: transparent; color: var(--text); padding: 13px 32px; border: 1px solid var(--border2); border-radius: 4px; text-decoration: none; }
+  .btn-ghost:hover { border-color: var(--text2); }
+
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; margin-top: 3rem; }
+  .about-text p { font-size: 16px; line-height: 1.9; color: var(--text2); margin-bottom: 1.2rem; }
+  .about-text p strong { color: var(--accent); }
+  .about-right { display: flex; flex-direction: column; gap: 1.5rem; }
+  .info-card { padding: 1.5rem; border: 1px solid var(--border); border-radius: 8px; background: var(--bg2); }
+  .info-card-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text3); text-transform: uppercase; margin-bottom: 0.8rem; }
+  .info-card-val { font-size: 15px; color: var(--text); font-weight: 500; }
+  .info-card-sub { font-size: 13px; color: var(--text2); margin-top: 3px; }
+  .avail-dot { display: inline-block; width: 8px; height: 8px; background: var(--green); border-radius: 50%; margin-right: 8px; }
+
+  #projects { background: var(--bg2); }
+  .proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+  .proj-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 10px; padding: 2rem; position: relative; }
+  .proj-num { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: rgba(201,169,110,0.12); margin-bottom: 1rem; }
+  .proj-type { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--accent); margin-bottom: 0.6rem; text-transform: uppercase; }
+  .proj-title { font-size: 19px; font-weight: 500; color: var(--text); margin-bottom: 0.7rem; }
+  .proj-desc { font-size: 14px; line-height: 1.75; color: var(--text2); margin-bottom: 1.5rem; }
+  .proj-tech { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tech-tag { font-family: 'DM Mono', monospace; font-size: 10.5px; padding: 4px 10px; border: 1px solid var(--border); border-radius: 3px; color: var(--text3); }
+  .proj-link { position: absolute; top: 1.5rem; right: 1.5rem; width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--text3); text-decoration: none; font-size: 14px; }
+
+  #skills { }
+  .skills-layout { display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; margin-top: 3rem; align-items: start; }
+  .skill-categories { display: flex; flex-direction: column; gap: 2rem; }
+  .skill-cat-title { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text3); text-transform: uppercase; margin-bottom: 1rem; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-tag { font-size: 13px; padding: 7px 16px; border: 1px solid var(--border); border-radius: 4px; color: var(--text2); }
+
+  #contact { background: var(--bg2); }
+  .contact-socials { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 3rem; }
+  .social-item { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.2rem; border: 1px solid var(--border); border-radius: 6px; text-decoration: none; color: var(--text2); font-size: 14px; }
+  .social-icon { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text3); width: 70px; }
+
+  footer { padding: 2rem 4rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text3); flex-wrap: wrap; gap: 0.5rem; }
+
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 2rem; }
+    .nav-links { display: none; }
+    section { padding: 5rem 2rem; }
+    .about-grid, .skills-layout, .contact-socials { grid-template-columns: 1fr; gap: 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">ISHWARYA.DEV</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="#contact">Hire me</a>
+</nav>
+
+<section id="hero">
+  <div class="hero-inner">
+    <h1 class="hero-name">Hello, I'm<br/><span>Ishwarya</span></h1>
+    <p class="hero-role">I build web and AI solutions with a focus on clean code, intuitive UI, and innovative features</p>
+    <div class="hero-btns">
+      <a class="btn-gold" href="#projects">View my work</a>
+      <a class="btn-ghost" href="#contact">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="section-tag">About me</div>
+    <h2 class="section-heading">A developer who <em>loves</em> creating and learning</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>Hi! I'm <strong>Ishwarya Lakshmi</strong>, an CSE graduate passionate about AI, web development, and cloud solutions.</p>
+        <p>I’ve participated in hackathons, paper presentations, and online certifications like AWS & MongoDB. I enjoy turning ideas into real-world applications.</p>
+      </div>
+      <div class="about-right">
+        <div class="info-card">
+          <div class="info-card-label">Status</div>
+          <div class="info-card-val"><span class="avail-dot"></span>Available for opportunities</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Education</div>
+          <div class="info-card-val">B.Tech — CSE</div>
+          <div class="info-card-sub">2023— 2027</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Achievements</div>
+          <div class="info-card-val">ECE Learnix Hackathon Winner</div>
+          <div class="info-card-sub">AI Ignite 24hrs Hackathon Finalist, Paper Presentations, Certifications: AWS, MongoDB</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-tag">Work</div>
+    <h2 class="section-heading">Selected <em>projects</em>.</h2>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="proj-num">01</div>
+        <div class="proj-type">Healthcare AI</div>
+        <div class="proj-title">Real-Time Anesthesia Monitoring (DOSECARE)</div>
+        <div class="proj-desc">A monitoring system to track anesthesia dosage in real-time using AI algorithms for patient safety.</div>
+        <div class="proj-tech">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Machine Learning</span>
+          <span class="tech-tag">IoT</span>
+        </div>
+      </div>
+        
+      <div class="proj-card">
+        <div class="proj-num">02</div>
+        <div class="proj-type">Embedded Systems / IoT</div>
+        <div class="proj-title">Automatic Irrigation System using Arduino</div>
+        <div class="proj-desc">Designed a smart irrigation system based on soil moisture levels to automate watering. Reduced water wastage and manual effort using a solar-powered sustainable solution.</div>
+        <div class="proj-tech">
+          <span class="tech-tag">Arduino</span>
+          <span class="tech-tag">Sensors</span>
+          <span class="tech-tag">Embedded Systems</span>
+        </div>
+        </div>
+          
+          <div class="proj-card">
+        <a class="proj-link" href="https://69626c0998dfcd6580c20446--serene-gelato-5dcd5d.netlify.app/">↗</a>
+        <div class="proj-num">03</div>
+        <div class="proj-type">Web Application</div>
+        <div class="proj-title">Harvest Profit Planner</div>
+        <div class="proj-desc">Developed a web-based application to help farmers plan and maximize crop profits using cost, yield, and pricing inputs. Focused on improving agricultural productivity and financial planning.</div>
+        <div class="proj-tech">
+          <span class="tech-tag">Web Development</span>
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">Node.js</span>
+        </div>
+        </div>
+
+        <div class="proj-card">
+        <a class="proj-link" href="https://github.com/yourusername/ai-career-guidance">↗</a>
+        <div class="proj-num">04</div>
+        <div class="proj-type">Machine Learning / NLP / Web App</div>
+        <div class="proj-title">AI Career Guidance System</div>
+        <div class="proj-desc">Built an intelligent career recommendation system using Machine Learning and NLP. Integrated multiple ML algorithms and NLP-based skill analysis, with an interactive Streamlit interface and optional LLM features for advanced guidance.</div>
+        <div class="proj-tech">
+          <span class="tech-tag">Python, Machine Learning, NLP, XGBoost, Streamlit, LLMs
+</span>
+        </div>
+        </div>
+          
+        <div class="proj-card">
+        <div class="proj-num">05</div>
+        <div class="proj-type">Machine Learning / Web App</div>
+        <div class="proj-title">HCareer Prediction System</div>
+        <div class="proj-desc">Developed a Streamlit-based web application to predict suitable careers based on user profiles and skill ratings using machine learning models. Designed with a simple and interactive UI for real-time recommendations.</div>
+        <div class="proj-tech">
+          <span class="tech-tag">Python, Streamlit, Machine Learning
+</span>
+  
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="section-tag">Skills</div>
+    <h2 class="section-heading">What I <em>work</em> with.</h2>
+    <div class="skills-layout">
+      <div class="skill-categories">
+        <div>
+          <div class="skill-cat-title">Programming & AI</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Machine Learning</span>
+            <span class="skill-tag">Deep Learning</span>
+            <span class="skill-tag">NLP</span>
+          </div>
+        </div>
+        <div>
+          <div class="skill-cat-title">Web Development</div>
+          <div class="skill-tags">
+            <span class="skill-tag">HTML/CSS</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Node.js</span>
+          </div>
+        </div>
+        <div>
+          <div class="skill-cat-title">Databases & Cloud</div>
+          <div class="skill-tags">
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">Firebase</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="section-tag">Contact</div>
+    <h2 class="section-heading">Let's build <em>together</em>.</h2>
+    <div class="contact-socials">
+      <a class="social-item" href="https://github.com/IshwaryalakshmiDandabany"><span class="social-icon">GitHub</span>https://github.com/IshwaryalakshmiDandabany</a>
+      <a class="social-item" href="https://www.linkedin.com/in/ishwaryalakshmi-d-12647b344"><span class="social-icon">LinkedIn</span>https://www.linkedin.com/in/ishwaryalakshmi-d-12647b3444</a>
+      <a class="social-item" href="https://drive.google.com/file/d/1ZVpzOH8UbTirXTpg8fM9G3aB8ZpdpFlc/view?usp=drive_link"><span class="social-icon">Resume</span>https://drive.google.com/file/d/1ZVpzOH8UbTirXTpg8fM9G3aB8ZpdpFlc/view?usp=drive_link</a>
+      <a class="social-item" href="mailto:ishwaryad1411@gmail.com"><span class="social-icon">Email</span>ishwaryad1411@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Ishwarya Lakshmi. All rights reserved.</span>
+</footer>
+</body>
+</html>
